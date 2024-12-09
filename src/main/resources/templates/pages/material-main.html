@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATERIAL PAGE</title>
+    <link rel="stylesheet" href="/webjars/jquery-ui/1.14.0/jquery-ui.theme.css">
+    <link rel="stylesheet" href="/webjars/jquery-ui/1.14.0/jquery-ui.css">
+    <!-- USE WEBJAR FOR JQUERY AND JQUERY UI JS -->
+    <script src="/webjars/jquery/3.7.1/jquery.js"></script>
+    <script src="/webjars/jquery-ui/1.14.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/material-main.css">
+    <style>
+        .custom-select {
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!-- MENU VÀ NỘI DUNG -->
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- MENU BÊN TRÁI -->
+        <div th:replace="~{fragments/menu}">
+
+        </div>
+        <!-- NỘI DUNG HIỂN THỊ BÊN PHẢI -->
+        <div class="col-md-9">
+            <div id="content" class="p-4 bg-light">
+                <div class="container page-material">
+                    <h3 class="name-page"> Material Maintenance</h3>
+                    <hr>
+                    <form name="frmVendor">
+                        <div class="row">
+                            <!-- FORM FOR ADDING VENDORS -->
+                            <div class="col-sm-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="item_num" placeholder="Item No">
+                                    <label for="item_num">Item No</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control hide-class" id="item_type" placeholder="Type">
+                                    <label for="item_type">Type</label>
+                                    <select class="form-select" id="item_type_select" style="display:none;">
+                                        <option value="A">Type A</option>
+                                        <option value="B">Type B</option>
+                                        <option value="C">Type C</option>
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control hide-class" id="item_currency"
+                                           placeholder="Currency">
+                                    <label for="item_type">Currency</label>
+                                    <select class="form-select" id="item_currency_select" style="display:none;">
+                                        <option value="A">VND</option>
+                                        <option value="B">HKD</option>
+                                        <option value="C">USD</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="item_desc" placeholder="Item Name">
+                                    <label for="item_desc">Item Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="item_cost" placeholder="Unit Price">
+                                    <label for="item_cost">Unit Price</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="item_vendor" placeholder="Vendor">
+                                    <label for="item_vendor">Vendor</label>
+                                    <select class="form-select" id="item_vendor_select" style="display:none;">
+                                        <option value="Vendor1">Vendor 1</option>
+                                        <option value="Vendor2">Vendor 2</option>
+                                        <option value="Vendor3">Vendor 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="item_standard" placeholder="Standard">
+                                    <label for="item_standard">Standard</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="item_um" placeholder="UM">
+                                    <label for="item_um">UM</label>
+                                    <select class="form-select" id="item_um_select" style="display:none;">
+                                        <option value="kg">KG</option>
+                                        <option value="lb">LB</option>
+                                        <option value="ton">L</option>
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="item_ordlvl" placeholder="Safety Stock">
+                                    <label for="item_ordlvl">Safety Stock</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group" align="left">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-success w-100" id="add">Add</button>
+                                        <button type="button" class="btn btn-success w-100" id="save">Save</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-warning w-100" id="update">Update</button>
+                                        <button type="button" class="btn btn-warning w-100" id="cancel">Cancel</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-danger w-100" id="delete">Delete</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-secondary w-100" id="reset">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div style="text-align: center">
+                                    <h5 style="color: red" id="totalRecords">Records: </h5>
+                                </div>
+                                <!-- PAGINATION NAVIGATION -->
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link custom-btn" href="#" aria-label="First" id="btn-first">
+                                                <<span aria-hidden="true">&laquo;&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link custom-btn" href="#" aria-label="Previous" id="btn-previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link custom-btn" href="#" aria-label="Next" id="btn-next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link custom-btn" href="#" aria-label="Last" id="btn-last">
+                                                <span aria-hidden="true">&raquo;&raquo;></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="/js/material-main.js"></script>
+</body>
+</html>

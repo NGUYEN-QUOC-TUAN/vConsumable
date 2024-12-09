@@ -1,0 +1,65 @@
+<style>
+    .menu-item {
+        cursor: pointer;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:hover {
+        background-color: #e2e6ea;
+        color: #007bff;
+    }
+    .menu-item.active {
+        background-color: #cde0fd;
+        color: #353535;
+        font-weight: bold;
+    }
+    ul li {
+        list-style-type: none;
+    }
+    ul li a {
+        text-decoration: none;
+        display: block;
+        color: black;
+    }
+    .name-page{
+        text-align: center;
+    }
+    * {
+        font-family: Consolas, monospace;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">vConsumable</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Help</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
