@@ -1,0 +1,41 @@
+/* CỐ ĐỊNH KÍCH THƯỚC CỦA TABLE */
+.page-category {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#tbl-category {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#tbl-category th, #tbl-category td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#tbl-category th:nth-child(1),
+#tbl-category td:nth-child(1) {
+    width: 10%;
+}
+
+#tbl-category th:nth-child(2),
+#tbl-category td:nth-child(2) {
+    width: 10%;
+}
+
+#tbl-category th:nth-child(3),
+#tbl-category td:nth-child(3) {
+    width: 50%;
+}
+
+#tbl-category th:nth-child(4),
+#tbl-category td:nth-child(4) {
+    width: 15%;
+}
+
+#tbl-category th:nth-child(5),
+#tbl-category td:nth-child(5) {
+    width: 15%;
+}
